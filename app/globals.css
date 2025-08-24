@@ -1,0 +1,433 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to use light mauve hints with beige/cyan mix */
+  --background: #000103; /* Deep black background */
+  --foreground: #f5eccd; /* Beige text for primary readability */
+  --card: #1a1a1a; /* Dark card background with subtle difference */
+  --card-foreground: #f5eccd; /* Beige text on cards */
+  --popover: #1a1a1a; /* Dark popover background */
+  --popover-foreground: #f5eccd; /* Beige popover text */
+  --primary: #000103; /* Black primary */
+  --primary-foreground: #f5eccd; /* Beige text on primary */
+  --secondary: #f5eccd; /* Beige secondary */
+  --secondary-foreground: #000103; /* Black text on secondary */
+  --muted: #2a2a2a; /* Muted dark background */
+  --muted-foreground: #f5eccd; /* Beige muted text */
+  --accent: #d4b5c0; /* Light mauve accent (subtle hints only) */
+  --accent-foreground: #000103; /* Black text on accent */
+  --destructive: #d4b5c0; /* Light mauve for errors */
+  --destructive-foreground: #f5eccd; /* Beige text on destructive */
+  --border: #333333; /* Dark gray borders */
+  --input: #1a1a1a; /* Dark inputs */
+  --ring: #f5eccd; /* Beige focus ring */
+  --chart-1: #000103; /* Black */
+  --chart-2: #f5eccd; /* Beige */
+  --chart-3: #d4b5c0; /* Light mauve */
+  --chart-4: #7deed0; /* Cyan accent */
+  --chart-5: #9aa0a6; /* Gray */
+  --radius: 0.75rem; /* Slightly more rounded for modern feel */
+  --sidebar: #000103; /* Black sidebar */
+  --sidebar-foreground: #f5eccd; /* Beige sidebar text */
+  --sidebar-primary: #000103; /* Black sidebar primary */
+  --sidebar-primary-foreground: #f5eccd; /* Beige sidebar primary text */
+  --sidebar-accent: #f5eccd; /* Beige sidebar accent */
+  --sidebar-accent-foreground: #000103; /* Black sidebar accent text */
+  --sidebar-border: #333333; /* Dark sidebar border */
+  --sidebar-ring: #f5eccd; /* Beige sidebar ring */
+  --font-inter: "Inter", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-quicksand: "Quicksand", sans-serif;
+  --font-sans: var(--font-quicksand);
+  /* Updated glow effects to use beige and light mauve */
+  --glow-primary: 0 0 20px rgba(0, 1, 3, 0.5);
+  --glow-accent: 0 0 15px rgba(212, 181, 192, 0.2);
+  --glow-secondary: 0 0 15px rgba(245, 236, 205, 0.3);
+  --glow-cyan: 0 0 15px rgba(126, 238, 208, 0.3);
+}
+
+.dark {
+  /* Enhanced dark mode with light mauve hints */
+  --background: #000103; /* Pure black background */
+  --foreground: #f5eccd; /* Beige text */
+  --card: #111111; /* Very dark cards */
+  --card-foreground: #f5eccd; /* Beige card text */
+  --popover: #111111; /* Very dark popover */
+  --popover-foreground: #f5eccd; /* Beige popover text */
+  --primary: #000103; /* Black primary */
+  --primary-foreground: #f5eccd; /* Beige text on primary */
+  --secondary: #f5eccd; /* Beige secondary */
+  --secondary-foreground: #000103; /* Black text on secondary */
+  --muted: #222222; /* Muted dark background */
+  --muted-foreground: #f5eccd; /* Beige muted text */
+  --accent: #d4b5c0; /* Light mauve accent */
+  --accent-foreground: #000103; /* Black text on accent */
+  --destructive: #d4b5c0; /* Light mauve for errors */
+  --destructive-foreground: #f5eccd; /* Beige text on destructive */
+  --border: #2a2a2a; /* Darker borders */
+  --input: #111111; /* Very dark inputs */
+  --ring: #f5eccd; /* Beige focus ring */
+  --chart-1: #000103; /* Black */
+  --chart-2: #f5eccd; /* Beige */
+  --chart-3: #d4b5c0; /* Light mauve */
+  --chart-4: #7deed0; /* Cyan accent */
+  --chart-5: #9aa0a6; /* Gray */
+  --sidebar: #000103; /* Black sidebar */
+  --sidebar-foreground: #f5eccd; /* Beige sidebar text */
+  --sidebar-primary: #000103; /* Black sidebar primary */
+  --sidebar-primary-foreground: #f5eccd; /* Beige sidebar primary text */
+  --sidebar-accent: #f5eccd; /* Beige sidebar accent */
+  --sidebar-accent-foreground: #000103; /* Black sidebar accent text */
+  --sidebar-border: #2a2a2a; /* Dark sidebar border */
+  --sidebar-ring: #f5eccd; /* Beige sidebar ring */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-sans: var(--font-quicksand);
+  --font-heading: var(--font-montserrat);
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Updated background with brighter introduction image and full window sizing */
+    background-color: #0a0a0a; /* Slightly lighter than pure black */
+    background-image: url("/vlsi-circuit-board.png"), url("/vlsi-circuit-board.png"), url("/vlsi-circuit-board.png"),
+      radial-gradient(circle at 25% 25%, rgba(245, 236, 205, 0.25) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(212, 181, 192, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(126, 238, 208, 0.12) 0%, transparent 50%),
+      linear-gradient(90deg, rgba(245, 236, 205, 0.05) 1px, transparent 1px),
+      linear-gradient(rgba(245, 236, 205, 0.05) 1px, transparent 1px);
+    background-size: 100vw 100vh, 100vw 100vh, 100vw 100vh, 100% 100%, 100% 100%, 100% 100%, 50px 50px, 50px 50px;
+    background-position: top right, bottom left, center center, 0 0, 0 0, 0 0, 0 0, 0 0;
+    background-repeat: no-repeat, no-repeat, no-repeat, repeat, repeat, repeat, repeat, repeat;
+    background-blend-mode: overlay, overlay, overlay, normal, normal, normal, normal, normal;
+    /* Adding live circuit animation overlay */
+    position: relative;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    font-family: var(--font-sans);
+  }
+
+  /* Reduced live circuit background animations to minimum with fewer dots */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background: radial-gradient(2px 2px at 20% 30%, rgba(245, 236, 205, 0.6), transparent),
+      radial-gradient(2px 2px at 80% 70%, rgba(126, 238, 208, 0.5), transparent),
+      radial-gradient(1px 1px at 60% 20%, rgba(212, 181, 192, 0.4), transparent);
+    background-size: 300px 300px, 400px 400px, 250px 250px;
+    animation: circuit-flow 12s linear infinite;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    background: linear-gradient(90deg, transparent 0%, rgba(245, 236, 205, 0.15) 50%, transparent 100%),
+      linear-gradient(0deg, transparent 0%, rgba(126, 238, 208, 0.12) 50%, transparent 100%);
+    background-size: 400px 2px, 2px 400px;
+    animation: signal-flow 6s ease-in-out infinite alternate;
+  }
+
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+  /* Updated glow effects for new color palette */
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+  .glow-secondary {
+    box-shadow: var(--glow-secondary);
+  }
+  .glow-cyan {
+    box-shadow: var(--glow-cyan);
+  }
+  /* Updated circuit pulse animation */
+  @keyframes circuit-pulse {
+    0%,
+    100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+  .circuit-pulse {
+    animation: circuit-pulse 2s ease-in-out infinite;
+  }
+
+  /* Added glass finish button styles */
+  .glass-button {
+    background: rgba(245, 236, 205, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(245, 236, 205, 0.2);
+    color: #f5eccd;
+    transition: all 0.3s ease;
+  }
+
+  .glass-button:hover {
+    background: rgba(245, 236, 205, 0.2);
+    border-color: rgba(245, 236, 205, 0.4);
+    box-shadow: 0 8px 32px rgba(245, 236, 205, 0.1);
+    transform: translateY(-2px);
+  }
+
+  /* Enhanced card visibility with better contrast */
+  .enhanced-card {
+    background: rgba(70, 70, 70, 0.9);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(245, 236, 205, 0.15);
+  }
+
+  .enhanced-card:hover {
+    background: rgba(50, 50, 50, 0.98);
+    border-color: rgba(245, 236, 205, 0.25);
+    box-shadow: 0 8px 32px rgba(245, 236, 205, 0.08);
+  }
+
+  /* Updated contact card styling to match other cards */
+  .contact-card {
+    background: rgba(70, 70, 70, 0.9);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(245, 236, 205, 0.15);
+  }
+
+  .contact-card:hover {
+    background: rgba(50, 50, 50, 0.98);
+    border-color: rgba(245, 236, 205, 0.25);
+    box-shadow: 0 8px 32px rgba(245, 236, 205, 0.08);
+    transform: translateY(-2px);
+  }
+
+  /* Adding scrollbar styling for professional experience section */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-thumb-accent\/20 {
+    scrollbar-color: rgba(212, 181, 192, 0.2) transparent;
+  }
+
+  .scrollbar-track-transparent {
+    scrollbar-track-color: transparent;
+  }
+
+  /* Webkit scrollbar styling for better browser support */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(212, 181, 192, 0.2);
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 181, 192, 0.4);
+  }
+
+  /* Adding button glow effect for enhanced interactivity */
+  .btn-glow {
+    transition: all 0.3s ease;
+  }
+
+  .btn-glow:hover {
+    box-shadow: 0 0 20px rgba(245, 236, 205, 0.3);
+    transform: translateY(-2px);
+  }
+
+  /* Adding line clamp utility for text truncation */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Adding interactive circuit nodes */
+  .circuit-node {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(245, 236, 205, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(245, 236, 205, 0.6);
+    animation: node-pulse 3s ease-in-out infinite;
+  }
+  @keyframes trace-flow-vertical {
+    0% {
+      transform: translateY(-150px);
+      opacity: 0;
+    }
+    25% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 1;
+    }
+    75% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(150px);
+      opacity: 0;
+    }
+  }
+
+  .circuit-node:nth-child(2n) {
+    background: rgba(126, 238, 208, 0.7);
+    box-shadow: 0 0 8px rgba(126, 238, 208, 0.5);
+    animation-delay: 1s;
+  }
+
+  .circuit-node:nth-child(3n) {
+    background: rgba(212, 181, 192, 0.6);
+    box-shadow: 0 0 6px rgba(212, 181, 192, 0.4);
+    animation-delay: 2s;
+  }
+
+  @keyframes node-pulse {
+    0%,
+    100% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.5);
+    }
+  }
+
+  /* Adding flowing trace lines */
+  .circuit-trace {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(245, 236, 205, 0.9), rgba(126, 238, 208, 0.8), transparent);
+    animation: trace-flow 2s linear infinite;
+    box-shadow: 0 0 10px rgba(245, 236, 205, 0.5);
+  }
+
+  .circuit-trace.vertical {
+    width: 2px;
+    height: 150px;
+    background: linear-gradient(0deg, transparent, rgba(126, 238, 208, 0.9), rgba(245, 236, 205, 0.7), transparent);
+    animation: trace-flow-vertical 2.5s linear infinite;
+    box-shadow: 0 0 10px rgba(126, 238, 208, 0.5);
+  }
+
+  @keyframes trace-flow-vertical {
+    0% {
+      transform: translateY(-150px);
+      opacity: 0;
+    }
+    25% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 1;
+    }
+    75% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(150px);
+      opacity: 0;
+    }
+  }
+}
+
+@keyframes trace-flow {
+  0% {
+    transform: translateX(-150px);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(150px);
+    opacity: 0;
+  }
+}
+
+@keyframes signal-flow {
+  0% {
+    background-position: -400px 0%, 0% -400px;
+    opacity: 0.3;
+  }
+  100% {
+    background-position: 400px 0%, 0% 400px;
+    opacity: 0.6;
+  }
+}
