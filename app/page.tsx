@@ -128,21 +128,6 @@ export default function Portfolio() {
       color: "secondary",
     },
     {
-      id: "microwave-circuits",
-      title: "Design and Simulation of Microwave Circuits using AWR Microwave Office",
-      period: "09/2023–12/2023",
-      shortDesc: "Simulated GaAs amplifier circuits for gain range -20dB to +20dB using AWR Microwave Office.",
-      fullDesc: [
-        "Simulated GaAs amplifier circuits for gain range -20dB to +20dB using AWR Microwave Office (AWR-DE).",
-        "Designed and verified 180° hybrid couplers and bandstop filters with EM simulation tools (EMSight, AXIOM, HFSS).",
-        "Performed RF system-level simulations to optimize S-parameters, insertion loss, and return loss for wireless communication systems.",
-      ],
-      tools: ["AWR Microwave Office", "EMSight", "AXIOM", "HFSS", "RF Design", "S-Parameters"],
-      github: "https://github.com/kruthi2316/Design-and-Simulation-of-Microwave-Circuits-using-AWR-Microwave-Office",
-      icon: ZapIcon,
-      color: "accent",
-    },
-    {
       id: "ring-oscillator",
       title: "Design of an Ultra Low-Frequency CMOS Ring Oscillator using Power Devices",
       period: "01/2023–05/2023",
