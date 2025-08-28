@@ -2,7 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Montserrat, Quicksand } from "next/font/google"
 import "./globals.css"
-
+import { Analytics } from "@vercel/analytics/next"
 const quicksand = Quicksand({
   subsets: ["latin"],
   display: "swap",
